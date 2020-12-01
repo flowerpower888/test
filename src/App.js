@@ -6,9 +6,9 @@ function App() {
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetch(
-        "https://www.mrsoft.by/data.json"
-      )
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = "https://www.mrsoft.by/data.json";
+    fetch(proxyurl + url)
       .then((res) => res.json())
       .then(dogs => setData(dogs.data))
   }, [data])
